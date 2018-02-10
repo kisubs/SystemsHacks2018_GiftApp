@@ -11,6 +11,9 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
 import org.xml.sax.XMLReader;
 import org.xml.sax.helpers.XMLReaderFactory;
@@ -36,6 +39,8 @@ import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 
 public class MainActivity extends AppCompatActivity {
+
+
 
     public static String request = "";
 
@@ -220,21 +225,32 @@ public class MainActivity extends AppCompatActivity {
                 document.getDocumentElement().normalize();
 
                 System.out.println("root element: " + document.getDocumentElement().getNodeName());
+
+                NodeList nList = document.getElementsByTagName("ItemAttributes");
+                System.out.println("---------------------");
+
+                for (int temp = 0; temp < nList.getLength(); temp++) {
+                    Node nNode = nList.item(temp);
+                    System.out.println("\nCurrent element :" + nNode.getNodeName());
+
+                    if (nNode.getNodeType() == Node.ELEMENT_NODE) {
+                        Element eElement = (Element) nNode;
+                        System.out.println("title : " + eElement.getElementsByTagName("Title").item(0).getTextContent());
+                    }
+                }
+
+
+
             } catch (Exception e) {
                 e.printStackTrace();
             }
 
 
-            try {
-
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
             Log.i("json", s);
         }
     }
 
-//    public static void itemRead(Document doc) {
+//    private String itemRead(Document doc) {
 //
 //    }
 
