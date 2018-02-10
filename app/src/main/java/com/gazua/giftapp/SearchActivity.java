@@ -91,29 +91,15 @@ public class SearchActivity extends AppCompatActivity {
         params.put("AssociateTag", "giftapp69-20");
         params.put("SearchIndex", "All");
         params.put("ResponseGroup", "Images,ItemAttributes,Offers");
+        params.put("Condition", "New");
         params.put("Keywords", keyword);
 
         //parse this fucker
         requestUrl = helper.sign(params);
-        String decoded = "";
-        try {
-            decoded = URLDecoder.decode(requestUrl, "UTF-8");
-
-        } catch(Exception e) {
-
-        }
-
         Log.d("Main", "Signed URL: \"" + requestUrl + "\"");
-//        Log.d("Main", "URL decoded: \"" + getUrlContents(requestUrl) + "\"");
-
-//        request = requestUrl;
-
 
         HttpAsyncTask task = new HttpAsyncTask();
         task.execute(requestUrl);
-
-
-
 
     }
 
@@ -214,20 +200,30 @@ public class SearchActivity extends AppCompatActivity {
                         Element itemAttributes = (Element) eElement.getElementsByTagName("ItemAttributes").item(0);
                         Element offerSummary = (Element) eElement.getElementsByTagName("OfferSummary").item(0);
                         Element lowestPrice = (Element) offerSummary.getElementsByTagName("LowestNewPrice").item(0);
+                        Element largeImage = (Element) eElement.getElementsByTagName("LargeImage").item(0);
+
 
                         String title = itemAttributes.getElementsByTagName("Title").item(0).getTextContent();
-                        String price = lowestPrice.getElementsByTagName("FormattedPrice").item(0).getTextContent();
+                        String price = "";
+                        if(lowestPrice != null) {
+                            price = lowestPrice.getElementsByTagName("FormattedPrice").item(0).getTextContent();
+
+                        }
                         String pageURL = eElement.getElementsByTagName("DetailPageURL").item(0).getTextContent();
+                        String imageURL = "";
+                        if(largeImage != null) {
+                            imageURL = largeImage.getElementsByTagName("URL").item(0).getTextContent();
+                        }
 
-
-                        resultItemList.add(new ResultItem(title, price, pageURL));
+                        resultItemList.add(new ResultItem(title, price, pageURL, imageURL));
                     }
                 }
 
                 for(ResultItem r : resultItemList) {
-                    Log.d("Title: ", r.getTitle());
-                    Log.d("Price: ", r.getFormattedPrice());
-                    Log.d("Price: ", r.getPageURL());
+                    Log.d("Title", r.getTitle());
+                    Log.d("Price", r.getFormattedPrice());
+                    Log.d("pageURL", r.getPageURL());
+                    Log.d("imageURL", r.getImageURL());
                 }
 
 

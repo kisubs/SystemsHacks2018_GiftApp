@@ -9,11 +9,13 @@ public class ResultItem {
     String title;
     String formattedPrice;
     String pageURL;
+    String imageURL;
 
-    public ResultItem(String title, String formattedPrice, String pageURL) {
+    public ResultItem(String title, String formattedPrice, String pageURL, String imageURL) {
         this.title = title;
         this.formattedPrice = formattedPrice;
         this.pageURL = pageURL;
+        this.imageURL = imageURL;
     }
 
     public String getTitle() {
@@ -26,6 +28,10 @@ public class ResultItem {
 
     public String getPageURL() {
         return this.pageURL;
+    }
+
+    public String getImageURL() {
+        return this.imageURL;
     }
 
 }
