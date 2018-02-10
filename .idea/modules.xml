@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/GiftApp.iml" filepath="$PROJECT_DIR$/GiftApp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SystemsHacks2018_GiftApp.iml" filepath="$PROJECT_DIR$/SystemsHacks2018_GiftApp.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
