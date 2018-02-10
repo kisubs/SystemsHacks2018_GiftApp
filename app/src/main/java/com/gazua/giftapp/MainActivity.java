@@ -90,6 +90,8 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Toast toast = Toast.makeText(getApplicationContext(), "GAZUUUUUA!", Toast.LENGTH_SHORT);
                 toast.show();
+                Intent intent = new Intent(MainActivity.this, AboutActivity.class);
+                startActivity(intent);
             }
         });
 
