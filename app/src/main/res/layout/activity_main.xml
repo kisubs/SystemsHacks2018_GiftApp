@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.gazua.giftapp.Main2Activity">
+    tools:context="com.gazua.giftapp.MainActivity">
 
     <TableLayout
         android:layout_width="match_parent"
@@ -19,31 +19,33 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="0.5">
+
                 <Button
+                    android:id="@+id/btn_search"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:id="@+id/button1"
                     android:background="@drawable/templogo"
-                    android:text="Search"
-                    android:textSize="18sp"
                     android:gravity="center|bottom"
+                    android:paddingBottom="10dp"
                     android:singleLine="false"
-                    android:paddingBottom="10dp"/>
+                    android:text="Search"
+                    android:textSize="18sp" />
             </RelativeLayout>
             <RelativeLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="0.5">
+
                 <Button
+                    android:id="@+id/btn_best_seller"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:id="@+id/button2"
                     android:background="@drawable/templogo"
-                    android:text="Best Seller"
-                    android:textSize="18sp"
                     android:gravity="center|bottom"
+                    android:paddingBottom="10dp"
                     android:singleLine="false"
-                    android:paddingBottom="10dp"/>
+                    android:text="Best Seller"
+                    android:textSize="18sp" />
             </RelativeLayout>
         </TableRow>
 
@@ -56,29 +58,31 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="0.5">
+
                 <Button
+                    android:id="@+id/btn_random"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:id="@+id/button3"
                     android:background="@drawable/templogo"
-                    android:text="Random Gifts"
-                    android:textSize="18sp"
                     android:gravity="center|bottom"
-                    android:paddingBottom="10dp"/>
+                    android:paddingBottom="10dp"
+                    android:text="Random Gifts"
+                    android:textSize="18sp" />
             </RelativeLayout>
             <RelativeLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="0.5">
+
                 <Button
+                    android:id="@+id/btn_about"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:id="@+id/button4"
                     android:background="@drawable/templogo"
-                    android:text="About"
-                    android:textSize="18sp"
                     android:gravity="center|bottom"
-                    android:paddingBottom="10dp"/>
+                    android:paddingBottom="10dp"
+                    android:text="About"
+                    android:textSize="18sp" />
             </RelativeLayout>
         </TableRow>
 

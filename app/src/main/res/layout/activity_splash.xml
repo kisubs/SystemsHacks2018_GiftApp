@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    tools:context="com.gazua.giftapp.MainActivity">
+    tools:context="com.gazua.giftapp.SplashActivity">
 
     <ImageView android:id="@+id/splashscreen" android:layout_width="wrap_content"
         android:layout_height="fill_parent"
