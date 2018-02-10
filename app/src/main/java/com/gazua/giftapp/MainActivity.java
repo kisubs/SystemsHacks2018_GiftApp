@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import org.w3c.dom.Document;
+import org.xml.sax.InputSource;
 import org.xml.sax.XMLReader;
 import org.xml.sax.helpers.XMLReaderFactory;
 
@@ -19,6 +20,7 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.StringReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLConnection;
@@ -209,10 +211,32 @@ public class MainActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(String s) {
             super.onPostExecute(s);
+
+            try {
+                DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+                DocumentBuilder builder = factory.newDocumentBuilder();
+                Document document = builder.parse(new InputSource(new StringReader(s)));
+
+                document.getDocumentElement().normalize();
+
+                System.out.println("root element: " + document.getDocumentElement().getNodeName());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+
+            try {
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
             Log.i("json", s);
         }
     }
 
+//    public static void itemRead(Document doc) {
+//
+//    }
 
     /*
     private String getUrlContents(String theUrl)
