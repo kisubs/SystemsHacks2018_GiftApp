@@ -44,8 +44,8 @@ public class BestSellerActivity extends AppCompatActivity {
     }
 
     private void populateListView() {
-        List<item> itemList = gam.getBestSellerList();
-        ArrayAdapter<item> adapter = new ItemListAdapter();
+        //List<item> itemList = gam.getBestSellerList();
+        ArrayAdapter<ResultItem> adapter = new ItemListAdapter();
         //ArrayAdapter<item> adapter = new ArrayAdapter<item>(this,R.layout.activity_best_seller)>
 
         ListView listView = (ListView) findViewById(R.id.bestseller_list);
@@ -60,7 +60,7 @@ public class BestSellerActivity extends AppCompatActivity {
 
 
 
-    private class ItemListAdapter extends ArrayAdapter<item> {
+    private class ItemListAdapter extends ArrayAdapter<ResultItem> {
 
         public ItemListAdapter() {
             super(BestSellerActivity.this, R.layout.item_list, gam.getBestSellerList());
@@ -75,16 +75,17 @@ public class BestSellerActivity extends AppCompatActivity {
             }
 
             // Find the current car to work with
-            item currentItem = gam.getBestSellerList().get(position);
+            ResultItem currentItem = gam.getBestSellerList().get(position);
 
+            //TODO:
             ImageView imageView = (ImageView) itemView.findViewById(R.id.image_item_icon);
             imageView.setImageResource(R.drawable.google);
 
             TextView name = (TextView) itemView.findViewById(R.id.text_item_name);
-            name.setText(""+currentItem.getName());
+            name.setText(""+currentItem.getTitle());
 
             TextView price = (TextView) itemView.findViewById(R.id.text_item_price);
-            price.setText("$ "+currentItem.getPrice());
+            price.setText("$ "+currentItem.getFormattedPrice());
 
             return itemView;
         }

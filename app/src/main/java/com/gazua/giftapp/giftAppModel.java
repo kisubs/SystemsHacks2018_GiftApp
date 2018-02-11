@@ -15,12 +15,12 @@ public class giftAppModel {
     private static giftAppModel instance = new giftAppModel();
     private Context applicationContext = App.getInstance();
 
-    private List<item> giftList = new ArrayList<>();
+    private List<ResultItem> giftList = new ArrayList<>();
 
-    public List<item> getBestSellerList(){
+    public List<ResultItem> getBestSellerList(){
         for(int i = 0 ; i < 10 ; i++){
 
-            item tmp = new item(""+i,i,""+i);
+            ResultItem tmp = new ResultItem("anItem", "99.99","www.what.com", "www.google.ca");
             giftList.add(tmp);
         }
         return giftList;
