@@ -1,5 +1,7 @@
 package com.gazua.giftapp;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -15,6 +17,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
@@ -240,6 +243,17 @@ public class SearchActivity extends AppCompatActivity {
                 prices.setText(resultItemList.get(0).getFormattedPrice());
                 Picasso.with(getApplicationContext()).load(resultItemList.get(0).getImageURL()).into(images);
 
+                images.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent();
+                        intent.setAction(Intent.ACTION_VIEW);
+                        intent.addCategory(Intent.CATEGORY_BROWSABLE);
+                        intent.setData(Uri.parse(resultItemList.get(0).getPageURL()));
+                        startActivity(intent);
+                    }
+                });
+
 
 
 
@@ -264,6 +278,8 @@ public class SearchActivity extends AppCompatActivity {
             }
         }
     };
+
+
 
 
 }
