@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="autocomplete_array">
+        <item>Almani</item>
+        <item>Albania</item>
+        <item>Algeria</item>
+        <item>Alia</item>
+        <item>Alala</item>
+        <item>Alica</item>
+        <item>Aling</item>
+        <item>Alishiba</item>
+    </string-array>
+</resources>
