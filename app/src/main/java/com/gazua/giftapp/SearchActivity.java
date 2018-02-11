@@ -12,6 +12,12 @@ import android.view.WindowManager;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
+
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -38,6 +44,9 @@ public class SearchActivity extends AppCompatActivity {
     private ArrayList<ResultItem> resultItemList;
     private AutoCompleteTextView textView;
     private Button searchButton;
+    private TextView title;
+    private TextView prices;
+    private ImageView images;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,12 +66,13 @@ public class SearchActivity extends AppCompatActivity {
         textView.setAdapter(adapter);
 
         searchButton = (Button) findViewById(R.id.button_search);
-        searchButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                searchByKeyword(textView.getText().toString());
-            }
-        });
+
+        title = (TextView) findViewById(R.id.title);
+        prices = (TextView) findViewById(R.id.prices);
+        images = (ImageView) findViewById(R.id.images);
+
+
+        searchButton.setOnClickListener(onClickListener);
     }
 
 
@@ -226,6 +236,10 @@ public class SearchActivity extends AppCompatActivity {
                     Log.d("imageURL", r.getImageURL());
                 }
 
+                title.setText(resultItemList.get(0).getTitle());
+                prices.setText(resultItemList.get(0).getFormattedPrice());
+                Picasso.with(getApplicationContext()).load(resultItemList.get(0).getImageURL()).into(images);
+
 
 
 
@@ -238,6 +252,18 @@ public class SearchActivity extends AppCompatActivity {
         }
 
     }
+
+    View.OnClickListener onClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            try {
+                searchByKeyword(textView.getText().toString());
+
+            } catch (NullPointerException e) {
+                System.out.print("Caught the NullPointerException");
+            }
+        }
+    };
 
 
 }
