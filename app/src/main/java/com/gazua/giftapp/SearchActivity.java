@@ -94,6 +94,7 @@ public class SearchActivity extends AppCompatActivity {
         params.put("Condition", "New");
         params.put("Keywords", keyword);
 
+
         //parse this fucker
         requestUrl = helper.sign(params);
         Log.d("Main", "Signed URL: \"" + requestUrl + "\"");
