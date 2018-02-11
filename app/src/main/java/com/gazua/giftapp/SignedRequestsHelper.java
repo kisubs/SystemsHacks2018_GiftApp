@@ -6,7 +6,6 @@ package com.gazua.giftapp;
 
 import java.io.UnsupportedEncodingException;
 
-import java.net.URLDecoder;
 import java.net.URLEncoder;
 
 import java.security.InvalidKeyException;
@@ -16,7 +15,6 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
 import java.util.Calendar;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.SortedMap;

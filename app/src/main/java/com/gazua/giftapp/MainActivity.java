@@ -59,16 +59,17 @@ public class MainActivity extends AppCompatActivity {
         });
 
         Button btn_best_seller = (Button) findViewById(R.id.btn_best_seller);
-        btn_search.setOnClickListener(new View.OnClickListener() {
+        btn_best_seller.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Toast toast = Toast.makeText(getApplicationContext(), "Best Seller", Toast.LENGTH_SHORT);
                 toast.show();
+                startActivity(BestSellerActivity.makeIntent(MainActivity.this));
             }
         });
 
         Button btn_random = (Button) findViewById(R.id.btn_random);
-        btn_search.setOnClickListener(new View.OnClickListener() {
+        btn_random.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Toast toast = Toast.makeText(getApplicationContext(), "Random", Toast.LENGTH_SHORT);
@@ -77,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         Button btn_about = (Button) findViewById(R.id.btn_about);
-        btn_search.setOnClickListener(new View.OnClickListener() {
+        btn_about.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Toast toast = Toast.makeText(getApplicationContext(), "GAZUUUUUA!", Toast.LENGTH_SHORT);
